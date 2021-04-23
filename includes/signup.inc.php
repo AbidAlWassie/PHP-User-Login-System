@@ -4,15 +4,15 @@ if (isset($_POST['submit'])) {
 
   include_once 'dbh.inc.php';
 
-  // $fst = $_POST['firstname'];
-  // $lst = $_POST['lastname'];
-  // $em = $_POST['email'];
-  // $uid = $_POST['username'];
-  // $pwd = $_POST['password'];
+  $fst = $_POST['firstname'];
+  $lst = $_POST['lastname'];
+  $em = $_POST['email'];
+  $uid = $_POST['username'];
+  $pwd = $_POST['password'];
 
-  // $sql = "INSERT INTO `users` (`user_firstname`, `user_lastname`, `user_email`, `user_name`, `user_password`) VALUES (?, ?, ?, ?, ?);";
-  // // mysqli_query($connect, $sql);
-  // $stmt = mysqli_stmt_init($connect);
+  $sql = "INSERT INTO `users` (`user_firstname`, `user_lastname`, `user_email`, `user_name`, `user_password`) VALUES (?, ?, ?, ?, ?);";
+  // mysqli_query($connect, $sql);
+  $stmt = mysqli_stmt_init($connect);
   
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo "Failed";
