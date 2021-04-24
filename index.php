@@ -10,17 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
-	<style>
-		.navbar li a {
-			user-select: none;
-		}
-
-		ul.links {
-			user-select: none;
-		}
-	</style>
 <!-- <script src="js/script.js"></script> -->
-
 	<title>Home Page</title>
 </head>
 <body>
@@ -86,21 +76,17 @@
 </div>
 <script>
 		
-		// Get the modal
 var modal = document.getElementById("modal-area");
+var modalContent = document.querySelector("modal-content");
 
-// Get the button that opens the modal
 var btn = document.getElementById("loginBtn");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
 btn.onclick = function() {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
