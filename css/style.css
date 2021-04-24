@@ -1,11 +1,46 @@
-html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+html, body * { 
+  box-sizing: border-box; font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar li {
+  padding-left: 0;
+  padding-right: 0;
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #2f75d1;
+}
 
 body {
   background:
     linear-gradient(
-    rgba(246,247,249,0.8),
-    rgba(246,247,249,0.8)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg) no-repeat center center fixed;
+    rgba(0, 39, 145, 0.281),
+    rgba(0, 39, 145, 0.281)),
+    url(../img/pexels-bri-schneiter.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -22,7 +57,7 @@ body {
     linear-gradient(
     rgba(35,43,85,0.75),
     rgba(35,43,85,0.95)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
+    url(../img/pexels-bri-schneiter.jpg) no-repeat center center;
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
@@ -411,7 +446,7 @@ a.btn-signup:hover, a.btn-signin:hover {
     linear-gradient(
     rgba(35,43,85,0.75),
     rgba(35,43,85,0.95)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/landscape-nature-man-person.jpeg);
+    url(../img/pexels-bri-schneiter.jpg);
   background-size: cover;
   opacity: 0;
   transition: all 1.5s ease 0.55s;
@@ -429,7 +464,7 @@ a.btn-signup:hover, a.btn-signin:hover {
   border-radius: 70px;
   left: 155px;
   top: -1000px;
-  background: url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/nature-water-rocks-hiking.jpg);
+  background: url(../img/pexels-bri-schneiter.jpg);
   background-size: 100% 135%;
   background-position: 100% 100%;
   opacity: 0;

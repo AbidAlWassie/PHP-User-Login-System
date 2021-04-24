@@ -10,31 +10,112 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Index Page</title>
+<script src="js/script.js"></script>
+
+	<title>Home Page</title>
 </head>
 <body>
 
+<div class="navbar">
+	<ul>
+		<li><a class="active" href="#home">Home</a></li>
+		<li><a href="#news">News</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
+</div>
 
-<form action="includes/signup.inc.php" method="POST">
+<!-- <div class="container"> -->
+  <div class="frame">
+    <div class="options-nav">
+      <ul class="links">
+        <li class="one signin-active"><a class="signinBtn">Sign in</a></li>
+        <li class="two signup-inactive"><a class="signupBtn">Sign up</a></li>
+      </ul>
+    </div>
+    <div ng-app ng-init="checked = false">
+      <form class="form-signin" action="" method="POST" name="form">
+        <label for="username">Username</label>
+        <input class="form-styling" type="text" name="username" placeholder=""/>
 
-	<input type="text" name="firstname" placeholder="Enter Firstname">
-	<br>
-	<input type="text" name="lastname" placeholder="Enter Lastname">
-	<br>
-	<input type="text" name="email" placeholder="Enter Email">
-	<br>
-	<input type="text" name="username" placeholder="Enter Username">
-	<br>
-	<input type="text" name="password" placeholder="Enter Password">
-	<br>
+        <label for="password">Password</label>
+        <input class="form-styling" type="text" name="password" placeholder=""/>
 
-	<button type="submit" name="submit">Sign Up</button>
+        <input type="checkbox" id="checkbox"/>
+        <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
 
-</form>
+        <div class="btn-animate">
+          <a class="btn-signin">Sign in</a>
+        </div>
+      </form>
 
+      <form class="form-signup" action="" method="POST" name="form">
+        <label for="fullname">Full name</label>
+        <input class="form-styling" type="text" name="fullname" placeholder=""/>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
+        <label for="email">Email</label>
+        <input class="form-styling" type="text" name="email" placeholder=""/>
+
+        <label for="password">Password</label>
+        <input class="form-styling" type="text" name="password" placeholder=""/>
+
+        <label for="confirmpassword">Confirm password</label>
+        <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>
+
+        <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>
+      </form>
+
+      <div class="forgot">
+        <a href="#">Forgot your password?</a>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+<script>
+	window.onload = () => {
+
+let signinBtn = document.querySelector(".signinBtn");
+let signupBtn = document.querySelector(".signupBtn");
+
+signinBtn.addEventListener("click", signin);
+signupBtn.addEventListener("click", signup);
+
+const signupInactive = document.querySelector(".one");
+const signinActive = document.querySelector(".two");
+
+const forgotPassword = document.querySelector(".forgot");
+
+const formSignIn = document.querySelector(".form-signin");
+const formSignUp = document.querySelector(".form-signup");
+
+const frame = document.querySelector(".frame");
+
+function signin() {
+	forgotPassword.classList.remove("forgot-left");
+	frame.classList.remove("frame-long");
+	formSignIn.classList.remove("form-signin-left");
+	formSignUp.classList.remove("form-signup-left");
+	signinActive.classList.remove("signup-active");
+	signinActive.classList.add("signin-inactive");
+	signupInactive.classList.remove("signin-inactive");
+	// console.log("Sign In");
+}
+
+function signup() {
+	forgotPassword.classList.add("forgot-left");
+	frame.classList.add("frame-long");
+	formSignIn.classList.add("form-signin-left");
+	formSignUp.classList.add("form-signup-left");
+	signinActive.classList.add("signup-active");
+	signinActive.classList.remove("signup-inactive");
+	signupInactive.classList.add("signin-inactive");
+	// console.log("Sign Up");
+}
+}
+
+</script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </body>
 </html>
 
