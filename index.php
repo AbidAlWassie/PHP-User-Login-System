@@ -10,7 +10,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js"></script>
+	
+<!-- <script src="js/script.js"></script> -->
 
 	<title>Home Page</title>
 </head>
@@ -22,18 +23,21 @@
 		<li><a href="#news">News</a></li>
 		<li><a href="#contact">Contact</a></li>
 		<li><a href="#about">About</a></li>
-		<li><a href="#signin">Sign In</a></li>
+		<li><a href="#signin" id="loginBtn">Sign In</a></li>
 	</ul>
 </div>
 
-<!-- <div class="container"> -->
-  <div class="frame">
+<div id="modal-area" class="container modal">
+  <div class="frame modal-content">
+
     <div class="options-nav">
       <ul class="links">
         <li class="one signin-active"><a class="signinBtn">Sign in</a></li>
         <li class="two signup-inactive"><a class="signupBtn">Sign up</a></li>
+        <li class=""><span class="close">&times;</span></li>
       </ul>
     </div>
+
     <div ng-app ng-init="checked = false">
       <form class="form-signin" action="" method="POST" name="form">
         <label for="username">Username</label>
@@ -71,48 +75,75 @@
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div>
+<script>
+		
+		// Get the modal
+var modal = document.getElementById("modal-area");
 
+// Get the button that opens the modal
+var btn = document.getElementById("loginBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+	</script>
 <script>
 	window.onload = () => {
 
-let signinBtn = document.querySelector(".signinBtn");
-let signupBtn = document.querySelector(".signupBtn");
+	let signinBtn = document.querySelector(".signinBtn");
+	let signupBtn = document.querySelector(".signupBtn");
 
-signinBtn.addEventListener("click", signin);
-signupBtn.addEventListener("click", signup);
+	signinBtn.addEventListener("click", signin);
+	signupBtn.addEventListener("click", signup);
 
-const signupInactive = document.querySelector(".one");
-const signinActive = document.querySelector(".two");
+	const signupInactive = document.querySelector(".one");
+	const signinActive = document.querySelector(".two");
 
-const forgotPassword = document.querySelector(".forgot");
+	const forgotPassword = document.querySelector(".forgot");
 
-const formSignIn = document.querySelector(".form-signin");
-const formSignUp = document.querySelector(".form-signup");
+	const formSignIn = document.querySelector(".form-signin");
+	const formSignUp = document.querySelector(".form-signup");
 
-const frame = document.querySelector(".frame");
+	const frame = document.querySelector(".frame");
 
-function signin() {
-	forgotPassword.classList.remove("forgot-left");
-	frame.classList.remove("frame-long");
-	formSignIn.classList.remove("form-signin-left");
-	formSignUp.classList.remove("form-signup-left");
-	signinActive.classList.remove("signup-active");
-	signinActive.classList.add("signin-inactive");
-	signupInactive.classList.remove("signin-inactive");
-	// console.log("Sign In");
-}
+	function signin() {
+		forgotPassword.classList.remove("forgot-left");
+		frame.classList.remove("frame-long");
+		formSignIn.classList.remove("form-signin-left");
+		formSignUp.classList.remove("form-signup-left");
+		signinActive.classList.remove("signup-active");
+		signinActive.classList.add("signin-inactive");
+		signupInactive.classList.remove("signin-inactive");
+		// console.log("Sign In");
+	}
 
-function signup() {
-	forgotPassword.classList.add("forgot-left");
-	frame.classList.add("frame-long");
-	formSignIn.classList.add("form-signin-left");
-	formSignUp.classList.add("form-signup-left");
-	signinActive.classList.add("signup-active");
-	signinActive.classList.remove("signup-inactive");
-	signupInactive.classList.add("signin-inactive");
-	// console.log("Sign Up");
-}
+	function signup() {
+		forgotPassword.classList.add("forgot-left");
+		frame.classList.add("frame-long");
+		formSignIn.classList.add("form-signin-left");
+		formSignUp.classList.add("form-signup-left");
+		signinActive.classList.add("signup-active");
+		signinActive.classList.remove("signup-inactive");
+		signupInactive.classList.add("signin-inactive");
+		// console.log("Sign Up");
+	}
 }
 
 </script>
