@@ -10,7 +10,7 @@
     </div>
 
     <div ng-app ng-init="checked = false">
-      <form class="form-signin" action="login.inc.php" method="POST" name="form">
+      <form class="form-signin" action="includes/login.inc.php" method="POST" name="form">
         <label for="uid">Username</label>
         <input class="form-styling" type="text" name="uid" placeholder=""/>
 
@@ -21,11 +21,12 @@
         <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
 
         <div class="btn-animate">
-          <a class="btn-signin">Sign in</a>
+				<button class="btn-signin" type="submit" name="submit">Sign In</button>
+          <!-- <a class="btn-signin">Sign in</a> -->
         </div>
       </form>
 
-      <form class="form-signup" action="signup.inc.php" method="POST" name="form">
+      <form class="form-signup" action="includes/signup.inc.php" method="POST" name="form">
         <label for="name">Full name</label>
         <input class="form-styling" type="text" name="name" placeholder=""/>
 
@@ -37,8 +38,8 @@
 
         <label for="confirmpassword">Confirm password</label>
         <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>
-
-        <a ng-click="checked = !checked" class="btn-signup" name="submit">Sign Up</a>
+				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
+        <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>
 
       <div class="forgot">
