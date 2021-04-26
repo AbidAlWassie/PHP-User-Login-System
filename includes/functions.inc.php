@@ -42,6 +42,52 @@ function pwdMatch($password, $confirmPassword) {
   return $result;
 }
 
-function usernameExists($connect, $username) {
+function usernameExists($connect, $username, $email) {
+  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?";
+  $stmt = mysqli_stmt_init($connect);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location ../index.php?error=stmtfailed");
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($resultData)) {
+    return $row;
+  } else {
+    $result = false;
+    return $result;
+  }
+
+  mysqli_stmt_close($stmt);
+
+}
+
+function createUser($connect, $name, $email, $password) {
+  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?";
+  $stmt = mysqli_stmt_init($connect);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location ../index.php?error=stmtfailed");
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+  mysqli_stmt_execute($stmt);
+
+  $resultData = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($resultData)) {
+    return $row;
+  } else {
+    $result = false;
+    return $result;
+  }
+
+  mysqli_stmt_close($stmt);
 
 }

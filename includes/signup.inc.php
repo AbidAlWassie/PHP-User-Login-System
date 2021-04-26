@@ -32,12 +32,12 @@ if (isset($_POST["submit"])) {
     exit();
   }
 
-  if (usernameExists($connect, $username) !== false) {
+  if (usernameExists($connect, $username, $email) !== false) {
     header("location: ../index.php?error=usernamealreadytaken");
     exit();
   }
 
-  createUser($connect, $name, $email, $password);
+  createUser($connect, $name, $email, $username, $password);
 
   echo "Success!";
 } else {
