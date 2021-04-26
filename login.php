@@ -33,8 +33,8 @@
         <label for="email">Email</label>
         <input class="form-styling" type="text" name="email" placeholder="" required/>
 
-        <!-- <label for="username">Username</label>
-        <input class="form-styling" type="text" name="username" placeholder="" required/> -->
+        <label for="username">Username</label>
+        <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
         <input class="form-styling" type="text" name="password" placeholder="" required/>
