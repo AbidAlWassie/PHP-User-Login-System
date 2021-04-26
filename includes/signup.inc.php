@@ -2,17 +2,16 @@
 
 
 if (isset($_POST["submit"])) {
-  // $uid = $_POST["uid"];
   $name = $_POST["name"];
   $email = $_POST["email"];
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $confirmPassword = $_POST["confirmPassword"];
+  $confirmpassword = $_POST["confirmpassword"];
 
   require_once "dbh.inc.php";
   require_once "functions.inc.php";
 
-  if (emptyInputSignup($name, $email, $username, $password, $confirmPassword) !== false) {
+  if (emptyInputSignup($name, $email, $username, $password, $confirmpassword) !== false) {
     header("location: ../index.php?error=emptyinput");
     exit();
   }
@@ -27,7 +26,7 @@ if (isset($_POST["submit"])) {
     exit();
   }
 
-  if (pwdMatch($password, $confirmPassword) !== false) {
+  if (pwdMatch($password, $confirmpassword) !== false) {
     header("location: ../index.php?error=passwordsdontmatch");
     exit();
   }

@@ -9,8 +9,8 @@
       </ul>
     </div>
 
-    <div ng-app ng-init="checked = false">
-      <form class="form-signin" action="includes/login.inc.php" method="POST" name="form">
+    <div>
+      <form class="form-signin" action="includes/login.inc.php" method="POST" name="signinform">
         <label for="username">Username</label>
         <input class="form-styling" type="text" name="username" placeholder="" required/>
 
@@ -26,7 +26,7 @@
         </div>
       </form>
 
-      <form class="form-signup" action="includes/signup.inc.php" method="POST" name="form">
+      <form class="form-signup" action="includes/signup.inc.php" method="POST" name="signupform">
         <label for="name">Full name</label>
         <input class="form-styling" type="text" name="name" placeholder="" required/>
 
@@ -40,7 +40,7 @@
         <input class="form-styling" type="text" name="password" placeholder="" required/>
 
         <label for="confirmpassword">Confirm password</label>
-        <input class="form-styling" type="text" name="confirmPassword" placeholder="" required/>
+        <input class="form-styling" type="text" name="confirmpassword" placeholder="" required/>
 				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
         <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>

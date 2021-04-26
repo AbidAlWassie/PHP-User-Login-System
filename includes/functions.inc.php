@@ -1,8 +1,21 @@
 <?php
 
-function emptyInputSignup($name, $email, $username, $password, $confirmPassword) {
-  $result;
-  if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmPassword)) {
+function emptyInputSignup($name, $email, $username, $password, $confirmpassword) {
+  $result = "";
+  if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+  return $result;
+
+
+}
+
+function invalidUsername($username) {
+  $result = "";
+  $pattern = "/^[A-Za-z]\S*$/";
+  if (!preg_match($pattern, $username)) {
     $result = true;
   } else {
     $result = false;
@@ -10,20 +23,8 @@ function emptyInputSignup($name, $email, $username, $password, $confirmPassword)
   return $result;
 }
 
-
-function invalidUsername($username) {
-  $result;
-  if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-    $result = true;
-  }
-  else {
-    $result = false;
-  }
-  return $result;
-}
-
 function invalidEmail($email) {
-  $result;
+  $result = "";
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
   } else {
@@ -32,9 +33,11 @@ function invalidEmail($email) {
   return $result;
 }
 
-function pwdMatch($password, $confirmPassword) {
-  $result;
-  if ($password !== $confirmPassword) {
+
+
+function pwdMatch($password, $confirmpassword) {
+  $result = "";
+  if ($password !== $confirmpassword) {
     $result = true;
   } else {
     $result = false;
@@ -43,7 +46,7 @@ function pwdMatch($password, $confirmPassword) {
 }
 
 function usernameExists($connect, $username, $email) {
-  $sql = "SELECT * FROM `users` WHERE `username` = ? OR `email` = ?;";
+  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?;";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -86,3 +89,5 @@ function createUser($connect, $name, $email, $username, $password) {
   header("location ../index.php?error=none");
     exit();
 }
+
+?>
