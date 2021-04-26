@@ -45,7 +45,7 @@ function pwdMatch($password, $confirmpassword) {
 }
 
 function usernameExists($connect, $username, $email) {
-  $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
+  $sql = "SELECT * FROM `users` WHERE `username` = ? OR `email` = ?;";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -70,7 +70,7 @@ function usernameExists($connect, $username, $email) {
 }
 
 function createUser($connect, $name, $email, $username, $password) {
-  $sql = "INSERT INTO users (name, email, username, password) VALUES (?, ?, ?, ?);";
+  $sql = "INSERT INTO users (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
