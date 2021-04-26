@@ -67,8 +67,8 @@ function usernameExists($connect, $username, $email) {
 
 }
 
-function createUser($connect, $name, $email, $password) {
-  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?";
+function createUser($connect, $name, $email, $username, $password) {
+  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `username` = ?";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {

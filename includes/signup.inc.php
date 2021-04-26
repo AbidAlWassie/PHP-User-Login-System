@@ -2,9 +2,9 @@
 
 
 if (isset($_POST["submit"])) {
+  // $uid = $_POST["uid"];
   $name = $_POST["name"];
   $email = $_POST["email"];
-  $uid = $_POST["uid"];
   $username = $_POST["username"];
   $password = $_POST["password"];
   $confirmPassword = $_POST["confirmpassword"];

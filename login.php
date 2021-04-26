@@ -11,7 +11,7 @@
 
     <div ng-app ng-init="checked = false">
       <form class="form-signin" action="includes/login.inc.php" method="POST" name="form">
-        <label for="uid">Username</label>
+        <label for="username">Username</label>
         <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
@@ -33,7 +33,7 @@
         <label for="email">Email</label>
         <input class="form-styling" type="text" name="email" placeholder="" required/>
 
-        <label for="email">Username</label>
+        <label for="username">Username</label>
         <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
