@@ -489,7 +489,7 @@ label {
 }
 
 .forgot a {
-  color: rgba(255,255,255,.3);
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
   font-size: 13px;
   text-decoration: none;

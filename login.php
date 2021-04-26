@@ -12,10 +12,10 @@
     <div ng-app ng-init="checked = false">
       <form class="form-signin" action="includes/login.inc.php" method="POST" name="form">
         <label for="uid">Username</label>
-        <input class="form-styling" type="text" name="uid" placeholder=""/>
+        <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
-        <input class="form-styling" type="text" name="password" placeholder=""/>
+        <input class="form-styling" type="text" name="password" placeholder="" required/>
 
         <input type="checkbox" id="checkbox"/>
         <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
@@ -28,16 +28,19 @@
 
       <form class="form-signup" action="includes/signup.inc.php" method="POST" name="form">
         <label for="name">Full name</label>
-        <input class="form-styling" type="text" name="name" placeholder=""/>
+        <input class="form-styling" type="text" name="name" placeholder="" required/>
 
         <label for="email">Email</label>
-        <input class="form-styling" type="text" name="email" placeholder=""/>
+        <input class="form-styling" type="text" name="email" placeholder="" required/>
+
+        <label for="email">Username</label>
+        <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
-        <input class="form-styling" type="text" name="password" placeholder=""/>
+        <input class="form-styling" type="text" name="password" placeholder="" required/>
 
         <label for="confirmpassword">Confirm password</label>
-        <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>
+        <input class="form-styling" type="text" name="confirmpassword" placeholder="" required/>
 				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
         <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>
