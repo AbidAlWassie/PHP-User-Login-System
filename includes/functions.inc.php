@@ -1,30 +1,29 @@
 <?php
 
 function emptyInputSignup($name, $email, $username, $password, $confirmpassword) {
-  $result = "";
+  $result;
   if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
     $result = true;
   } else {
     $result = false;
   }
   return $result;
-
-
 }
 
 function invalidUsername($username) {
-  $result = "";
+  $result;
   $pattern = "/^[A-Za-z]\S*$/";
-  if (!preg_match($pattern, $username)) {
+  if (!preg_match("/^[A-Za-z]\S*$/", $username)) {
     $result = true;
-  } else {
+  }
+  else {
     $result = false;
   }
   return $result;
 }
 
 function invalidEmail($email) {
-  $result = "";
+  $result;
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
   } else {
@@ -36,7 +35,7 @@ function invalidEmail($email) {
 
 
 function pwdMatch($password, $confirmpassword) {
-  $result = "";
+  $result;
   if ($password !== $confirmpassword) {
     $result = true;
   } else {
@@ -46,7 +45,7 @@ function pwdMatch($password, $confirmpassword) {
 }
 
 function usernameExists($connect, $username, $email) {
-  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?;";
+  $sql = "SELECT * FROM users WHERE username = ? OR email = ?;";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {

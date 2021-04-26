@@ -17,9 +17,9 @@
 
 <?php
 	$data = "Admin";
-	$sql = "SELECT * FROM `users` WHERE `user_name`=?;";
+	$sql = "SELECT * FROM `users` WHERE `username`=?;";
 	// $result = mysqli_query($connect, $sql);
-	// $resultCheck = mysqli_num_rows($result); 
+	// $resultCheck = mysqli_num_rows($result);
 
 	$stmt = mysqli_stmt_init($connect);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -33,7 +33,7 @@
 
 	// if ($resultCheck > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
-			echo $row['user_name'] . "<br>";
+			echo $row['username'] . "<br>";
 		}
 	// }
 

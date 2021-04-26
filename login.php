@@ -41,7 +41,7 @@
 
         <label for="confirmpassword">Confirm password</label>
         <input class="form-styling" type="text" name="confirmpassword" placeholder="" required/>
-				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
+				<button class="btn-signup" type="submit" name="submitsignup">Sign Up</button>
         <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>
 
