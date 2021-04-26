@@ -14,7 +14,8 @@ function emptyInputSignup($name, $email, $username, $password, $confirmPassword)
 function invalidUsername($username) {
   $result = "";
   $pattern = "/^[a-zA-Z0-9]*$/";
-  if (!preg_match($pattern, $username)) {
+  
+  if (!preg_match($pattern), $username) {
     $result = true;
   } else {
     $result = false;
@@ -42,7 +43,7 @@ function pwdMatch($password, $confirmPassword) {
   return $result;
 }
 
-function usernameExists($connect, $username, $email) {
+function usernameExists($connect, $username) {
   $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?";
   $stmt = mysqli_stmt_init($connect);
 
