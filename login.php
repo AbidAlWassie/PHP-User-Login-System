@@ -11,7 +11,7 @@
 
     <div>
       <form class="form-signin" action="includes/login.inc.php" method="POST" name="signinform">
-        <label for="username">Username</label>
+        <label for="email">Email</label>
         <input class="form-styling" type="text" name="username" placeholder="" required/>
 
         <label for="password">Password</label>
@@ -33,15 +33,15 @@
         <label for="email">Email</label>
         <input class="form-styling" type="text" name="email" placeholder="" required/>
 
-        <label for="username">Username</label>
-        <input class="form-styling" type="text" name="username" placeholder="" required/>
+        <!-- <label for="username">Username</label>
+        <input class="form-styling" type="text" name="username" placeholder="" required/> -->
 
         <label for="password">Password</label>
         <input class="form-styling" type="text" name="password" placeholder="" required/>
 
         <label for="confirmpassword">Confirm password</label>
         <input class="form-styling" type="text" name="confirmpassword" placeholder="" required/>
-				<button class="btn-signup" type="submit" name="submitsignup">Sign Up</button>
+				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
         <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>
 

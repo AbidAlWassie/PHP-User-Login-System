@@ -16,10 +16,6 @@ if (isset($_POST["submitsignup"])) {
     exit();
   }
 
-  if (invalidUsername($username) !== false) {
-    header("location: ../index.php?error=emptyusername");
-    exit();
-  }
 
   if (invalidEmail($email) !== false) {
     header("location: ../index.php?error=invalidemail");

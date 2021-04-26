@@ -12,15 +12,15 @@ function emptyInputSignup($name, $email, $username, $password, $confirmpassword)
 
 function invalidUsername($username) {
   $result;
-  $pattern = "/^[A-Za-z]\S*$/";
-  if (!preg_match("/^[A-Za-z]\S*$/", $username)) {
+  if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
-  }
-  else {
+  } else {
     $result = false;
   }
   return $result;
 }
+
+
 
 function invalidEmail($email) {
   $result;
