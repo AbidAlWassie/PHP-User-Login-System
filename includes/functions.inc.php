@@ -13,7 +13,6 @@ function emptyInputSignup($name, $email, $username, $password, $confirmPassword)
 
 function invalidUsername($username) {
   $result;
-
   if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
   }
@@ -69,7 +68,7 @@ function usernameExists($connect, $username, $email) {
 }
 
 function createUser($connect, $name, $email, $username, $password) {
-  $sql = "INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?);";
+  $sql = "INSERT INTO users (name, email, username, password) VALUES (?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -77,9 +76,9 @@ function createUser($connect, $name, $email, $username, $password) {
     exit();
   }
 
-  $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-  mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $password);
+  mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPassword);
 
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
