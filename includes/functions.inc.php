@@ -1,7 +1,7 @@
 <?php
 
 function emptyInputSignup($name, $email, $username, $password, $confirmPassword) {
-  $result = "";
+  $result;
   if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmPassword)) {
     $result = true;
   } else {
@@ -12,19 +12,19 @@ function emptyInputSignup($name, $email, $username, $password, $confirmPassword)
 
 
 function invalidUsername($username) {
-  $result = "";
-  $pattern = "/^[a-zA-Z0-9]*$/";
-  
-  if (!preg_match($pattern), $username) {
+  $result;
+
+  if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
-  } else {
+  }
+  else {
     $result = false;
   }
   return $result;
 }
 
 function invalidEmail($email) {
-  $result = "";
+  $result;
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
   } else {
@@ -34,7 +34,7 @@ function invalidEmail($email) {
 }
 
 function pwdMatch($password, $confirmPassword) {
-  $result = "";
+  $result;
   if ($password !== $confirmPassword) {
     $result = true;
   } else {
@@ -43,8 +43,8 @@ function pwdMatch($password, $confirmPassword) {
   return $result;
 }
 
-function usernameExists($connect, $username) {
-  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `email` = ?";
+function usernameExists($connect, $username, $email) {
+  $sql = "SELECT * FROM `users` WHERE `username` = ? OR `email` = ?;";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -69,7 +69,7 @@ function usernameExists($connect, $username) {
 }
 
 function createUser($connect, $name, $email, $username, $password) {
-  $sql = "SELECT * FROM `users` WHERE `uid` = ? OR `username` = ?";
+  $sql = "INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -77,18 +77,13 @@ function createUser($connect, $name, $email, $username, $password) {
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+  $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+
+  mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $password);
+
   mysqli_stmt_execute($stmt);
-
-  $resultData = mysqli_stmt_get_result($stmt);
-
-  if ($row = mysqli_fetch_assoc($resultData)) {
-    return $row;
-  } else {
-    $result = false;
-    return $result;
-  }
-
   mysqli_stmt_close($stmt);
 
+  header("location ../index.php?error=none");
+    exit();
 }

@@ -7,12 +7,12 @@ if (isset($_POST["submit"])) {
   $email = $_POST["email"];
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $confirmPassword = $_POST["confirmpassword"];
+  $confirmPassword = $_POST["confirmPassword"];
 
   require_once "dbh.inc.php";
   require_once "functions.inc.php";
 
-  if (emptyInputSignup($name, $email, $uid, $password, $confirmPassword) !== false) {
+  if (emptyInputSignup($name, $email, $username, $password, $confirmPassword) !== false) {
     header("location: ../index.php?error=emptyinput");
     exit();
   }
@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
   }
 
   if (invalidEmail($email) !== false) {
-    header("location: ../index.php?error=emptyinput");
+    header("location: ../index.php?error=invalidemail");
     exit();
   }
 
@@ -32,14 +32,14 @@ if (isset($_POST["submit"])) {
     exit();
   }
 
-  if (usernameExists($connect, $username) !== false) {
+  if (usernameExists($connect, $username, $email) !== false) {
     header("location: ../index.php?error=usernamealreadytaken");
     exit();
   }
 
   createUser($connect, $name, $email, $username, $password);
 
-  echo "Success!";
+  // echo "Success!";
 } else {
   header("location: ../index.php");
   exit();
