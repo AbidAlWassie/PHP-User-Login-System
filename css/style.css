@@ -312,7 +312,7 @@ label {
     border: none; 
     padding-right: 40px;
     transition: background .5s ease;
- }
+}
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -500,122 +500,9 @@ label {
   text-decoration: none;
 }
 
-.welcome {
-  width: 100%;
-  height: 50px;
-  position: relative;
-  color: rgba(35,43,85,0.75);
-  opacity: 0;
-  transition: transform 1.5s ease .25s, opacity .1s ease 1s;
-}
-
-.welcome-left {
-  transform: translateY(-780px);
-  opacity: 1; 
-}
-
-.cover-photo {
-  height: 150px;
-  position: relative;
-  left: 0px;  top: -900px;
-  background:
-    linear-gradient(
-    rgba(35,43,85,0.75),
-    rgba(35,43,85,0.95)),
-    url(../img/pexels-bri-schneiter.jpg);
-  background-size: cover;
-  opacity: 0;
-  transition: all 1.5s ease 0.55s;
-}
-
-.cover-photo-down {
-  top: -575px;
-  opacity: 1;
-}
-
-.profile-photo {
-  height: 125px;
-  width: 125px;
-  position: relative;
-  border-radius: 70px;
-  left: 155px;
-  top: -1000px;
-  background: url(../img/pexels-bri-schneiter.jpg);
-  background-size: 100% 135%;
-  background-position: 100% 100%;
-  opacity: 0;
-  transition: top 1.5s ease 0.35s, opacity .75s ease .5s;
-  border: solid 3px #ffffff;
-}
-
-.profile-photo-down {
-  top: -636px;
-  opacity: 1;
-}
-
 h1 {
   color: #ffffff;
   font-size: 35px;
 	font-weight: 300;
   text-align: center;
-}
-
-.btn-goback {
-  position: relative;
-  margin-right: auto;
-  top: -400px;
-  float: left;
-  padding: 8px;
-  width: 83%;
-  margin-left: 37px;
-  margin-right: 37px;
-  height: 35px;
-	border-radius: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 13px;
-  text-align: center;
-  color: #1059FF;
-  margin-top: -8px;
-  border: solid 1px #1059FF;
-  opacity: 0;
-  transition: top 1.5s ease 0.35s, opacity .75s ease .5s;
-}
-
-.btn-goback-up {
-  top: -1080px;
-  opacity: 1;
-}
-
-a.btn-goback:hover {
-    cursor: pointer; 
-    background-color: #0F4FE6;
-    transition: all .5s; 
-    color: #ffffff;
-}
-
-/* refresh button styling */
-
-#refresh {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; 
-    background-color: #ffffff;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    box-shadow: 0px 2px 7px rgba(0,0,0,0.1);
-    padding: 13px 0 0 13px;
-}
-
-.refreshicon {
-    fill: #d3d3d3;
-    transform: rotate(0deg);
-    transition: fill .25s ease, transform .25s ease;
-}
-
-.refreshicon:hover {
-  cursor: pointer;
-  fill: #1059FF;
-  transform: rotate(180deg);
 }

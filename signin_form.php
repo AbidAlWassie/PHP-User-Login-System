@@ -1,4 +1,4 @@
-<form class="form-signin" action="includes/login.inc.php" method="POST" name="signinform">
+<form class="form-signin" action="includes/login.inc.php" method="POST">
   <label for="email">Email</label>
   <input class="form-styling" type="text" name="username" placeholder="" required/>
 

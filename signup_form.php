@@ -1,4 +1,4 @@
-<form class="form-signup" action="includes/signup.inc.php" method="POST" name="signupform">
+<form class="form-signup" action="includes/signup.inc.php" method="POST">
   <label for="name">Full name</label>
   <input class="form-styling" type="text" name="name" placeholder=""/>
 
