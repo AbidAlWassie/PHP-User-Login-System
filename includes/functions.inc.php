@@ -1,7 +1,7 @@
 <?php
 
 function emptyInputSignup($name, $email, $username, $password, $confirmpassword) {
-  $result = "";
+  $result = true;
   if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
     $result = true;
   } else {
@@ -11,7 +11,7 @@ function emptyInputSignup($name, $email, $username, $password, $confirmpassword)
 }
 
 function invalidUsername($username) {
-  $result = "";
+  $result = true;
   if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
   } else {
@@ -23,7 +23,7 @@ function invalidUsername($username) {
 
 
 function invalidEmail($email) {
-  $result = "";
+  $result = true;
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
   } else {
@@ -34,8 +34,8 @@ function invalidEmail($email) {
 
 
 
-function pwdMatch($password, $confirmpassword) {
-  $result = "";
+function matchPassword($password, $confirmpassword) {
+  $result = true;
   if ($password !== $confirmpassword) {
     $result = true;
   } else {
@@ -81,11 +81,9 @@ function createUser($connect, $name, $email, $username, $password) {
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
   mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPassword);
-
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-
   header("location ../index.php?error=none");
-    exit();
+  exit();
 }
 

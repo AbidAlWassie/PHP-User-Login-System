@@ -7,3 +7,16 @@
 		<li><a draggable="false" href="#signin" id="loginBtn">Sign In</a></li>
 	</ul>
 </div>
+
+<div id="modal-area" class="container modal">
+  <div class="frame modal-content">
+
+    <div class="options-nav">
+      <ul class="links">
+        <li draggable="false" class="one signin-active"><a class="signinBtn">Sign in</a></li>
+        <li draggable="false" class="two signup-inactive"><a class="signupBtn">Sign up</a></li>
+        <li draggable="false" class=""><span class="close">&times;</span></li>
+      </ul>
+    </div>
+
+    <div>
