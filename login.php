@@ -21,7 +21,7 @@
         <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
 
         <div class="btn-animate">
-				<button class="btn-signin" type="submit" name="submit">Sign In</button>
+				<button class="btn-signin" type="submit" name="signin">Sign In</button>
           <!-- <a class="btn-signin">Sign in</a> -->
         </div>
       </form>
@@ -42,7 +42,7 @@
         <label for="confirmpassword">Confirm password</label>
         <input class="form-styling" type="text" name="confirmpassword" placeholder="" required/>
 				
-				<button class="btn-signup" type="submit" name="submit">Sign Up</button>
+				<button class="btn-signup" type="submit" name="signup">Sign Up</button>
         <!-- <a ng-click="checked = !checked" name="submit"></a> -->
       </form>
 

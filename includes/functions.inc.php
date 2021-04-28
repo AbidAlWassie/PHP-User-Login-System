@@ -1,7 +1,7 @@
 <?php
 
 function emptyInputSignup($name, $email, $username, $password, $confirmpassword) {
-  $result;
+  $result = "";
   if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
     $result = true;
   } else {
@@ -11,7 +11,7 @@ function emptyInputSignup($name, $email, $username, $password, $confirmpassword)
 }
 
 function invalidUsername($username) {
-  $result;
+  $result = "";
   if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
   } else {
@@ -23,7 +23,7 @@ function invalidUsername($username) {
 
 
 function invalidEmail($email) {
-  $result;
+  $result = "";
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
   } else {
@@ -35,7 +35,7 @@ function invalidEmail($email) {
 
 
 function pwdMatch($password, $confirmpassword) {
-  $result;
+  $result = "";
   if ($password !== $confirmpassword) {
     $result = true;
   } else {
@@ -70,7 +70,7 @@ function usernameExists($connect, $username, $email) {
 }
 
 function createUser($connect, $name, $email, $username, $password) {
-  $sql = "INSERT INTO users (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?);";
+  $sql = "INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -89,4 +89,3 @@ function createUser($connect, $name, $email, $username, $password) {
     exit();
 }
 
-?>
