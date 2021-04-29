@@ -85,3 +85,16 @@ function createUser($connect, $name, $email, $username, $password) {
   exit();
 }
 
+function emptyInputSignin($email, $username, $password) {
+  $result = false;
+  if (empty($email) && empty($username) || empty($password)) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+  return $result;
+}
+
+function loginUser($connect, $username, $email, $password) {
+  
+}

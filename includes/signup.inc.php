@@ -11,7 +11,7 @@ if (isset($_POST["signup"])) {
   require_once "dbh.inc.php";
   require_once "functions.inc.php";
 
-  if (emptyInputSignup($name, $email, $username, $password, $confirmpassword) !== false) {
+  if (emptyInputSignup($name, $email, $username, $password, $confirmpassword) === false) {
     // header("location: ../index.php?error=empty_input");
     // exit();
   }

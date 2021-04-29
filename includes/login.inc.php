@@ -8,11 +8,12 @@ if (isset($_POST["signin"])) {
   require_once "functions.inc.php";
 
 
-//   function emptyInputLogin($email, $username, $password) {
-//     exit();
-//   }
+  function emptyInputLogin($email, $username, $password) {
+    exit();
+  }
 
-//   loginUser($connect, $email, $username, $password);
-// } else {
-
+  loginUser($connect, $email, $username, $password);
+} else {
+  header("location: ../index.php");
+  exit();
 }
