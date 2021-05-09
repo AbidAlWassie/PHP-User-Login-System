@@ -4,7 +4,14 @@
 		<li><a draggable="false" href="#news">News</a></li>
 		<li><a draggable="false" href="#contact">Contact</a></li>
 		<li><a draggable="false" href="#about">About</a></li>
-		<li><a draggable="false" href="#signin" id="loginBtn">Sign In</a></li>
+    <?php
+      if (isset($_SESSION["username"])) {
+        echo "<li><a draggable='false' href='#logout' id='loginBtn'>Logout</a></li>";
+      } else {
+        echo "<li><a draggable='false' href='#signin' id='loginBtn'>Sign In</a></li>";
+      }
+    ?>
+		<!-- <li><a draggable="false" href="#signin" id="loginBtn">Sign In</a></li> -->
 	</ul>
 </div>
 

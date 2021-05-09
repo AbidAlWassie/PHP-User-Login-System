@@ -8,11 +8,14 @@ if (isset($_POST["signin"])) {
   require_once "functions.inc.php";
 
 
-  function emptyInputLogin($email, $username, $password) {
+  if(emptyInputLogin($username, $password) === false) {
+    header("location: ../index.php?emptyloginfields");
     exit();
+  } else {
+    
   }
 
-  loginUser($connect, $email, $username, $password);
+  loginUser($connect, $username, $password);
 } else {
   header("location: ../index.php");
   exit();

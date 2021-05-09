@@ -1,45 +1,53 @@
 <?php
 
+require_once "dbh.inc.php";
+require_once "signup.inc.php";
+// $result;
+
 function emptyInputSignup($name, $email, $username, $password, $confirmpassword) {
-  $result = false;
+  // $result;
   if (empty($name) || empty($email) || empty($username) || empty($password) || empty($confirmpassword)) {
     $result = true;
+    return $result;
   } else {
     $result = false;
+    return $result;
   }
-  return $result;
 }
 
 function invalidUsername($username) {
-  $result = false;
+  // $result;
   if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
     $result = true;
+    return $result;
   } else {
     $result = false;
+    return $result;
   }
-  return $result;
 }
 
 
 
 function invalidEmail($email) {
-  $result = false;
+  // $result;
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $result = true;
+    return $result;
   } else {
     $result = false;
+    return $result;
   }
-  return $result;
 }
 
 function matchPassword($password, $confirmpassword) {
-  $result = false;
+  // $result;
   if ($password !== $confirmpassword) {
     $result = true;
+    return $result;
   } else {
     $result = false;
+    return $result;
   }
-  return $result;
 }
 
 function usernameExists($connect, $username, $email) {
@@ -81,13 +89,14 @@ function createUser($connect, $name, $email, $username, $password) {
   mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPassword);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
+  
   header("location ../index.php?error=none");
   exit();
 }
 
-function emptyInputSignin($email, $username, $password) {
-  $result = false;
-  if (empty($email) && empty($username) || empty($password)) {
+function emptyInputLogin($username, $password) {
+  // $result;
+  if (empty($username) || empty($password)) {
     $result = true;
   } else {
     $result = false;
@@ -95,6 +104,27 @@ function emptyInputSignin($email, $username, $password) {
   return $result;
 }
 
-function loginUser($connect, $username, $email, $password) {
+function loginUser($connect, $username, $password) {
+  $usernameExists = usernameExists($connect, $username, $username);
+  if ($usernameExists) {
+    header("heqader: /index.php");
+    exit();
+  }
+
+  $hashedPassword = $usernameExists["password"];
+  $checkPassword = password_verify($password, $hashedPassword);
+
+  if ($checkPassword === false) {
+    header("location: /index.php?errorlogingin");
+    exit();
+  } 
   
+  else if ($checkPassword === true) {
+    session_start();
+    $_SESSION["uid"] = $usernameExists["uid"];
+    $_SESSION["username"] = $usernameExists["username"];
+    header("location ../index.php?loginsuccess");
+    exit();
+  }
+
 }
